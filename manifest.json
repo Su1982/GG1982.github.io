@@ -1,0 +1,16 @@
+{
+  "name": "موقع سليمان للربح من الإنترنت",
+  "short_name": "سليمان",
+  "description": "دليل شامل لزيادة أرباح Google AdSense في 2026",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1041/1041883.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
