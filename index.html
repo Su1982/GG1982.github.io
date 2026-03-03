@@ -16,6 +16,7 @@
       --bg: #f8fafc;
       --text: #1e293b;
       --card: #ffffff;
+      --kofi: #ff5e5b;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -32,8 +33,25 @@
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     }
     header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; opacity: 0.9; }
+    header p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
     
+    .hero-btn {
+      display: inline-block;
+      background: var(--kofi);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 94, 91, 0.3);
+    }
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 94, 91, 0.4);
+    }
+
     nav {
       background: white;
       padding: 15px;
@@ -118,6 +136,7 @@
   <header>
     <h1>دليل الربح من الإنترنت 2026</h1>
     <p>مع سليمان، تعلم كيف تحقق أقصى استفادة من موقعك الإلكتروني</p>
+    <a href="https://ko-fi.com/suleiman1982" target="_blank" class="hero-btn">ادعمني عبر Ko-fi ☕</a>
   </header>
 
   <nav>
@@ -150,7 +169,7 @@
         <h2>2. تحسين تجربة المستخدم على الجوال</h2>
         <p>أكثر من 80% من زوار الإنترنت حالياً يستخدمون الهواتف الذكية. تأكد من أن موقعك <strong>متجاوب (Responsive)</strong> وسريع التحميل. جوجل تعطي الأولوية للمواقع التي تقدم تجربة سلسة لمستخدمي الجوال.</p>
 
-        <!-- وحدة إعلانية يدوية In-Feed Ad الموضع الثاني (تكرار لنفس الوحدة لزيادة الأرباح) -->
+        <!-- وحدة إعلانية يدوية In-Feed Ad الموضع الثاني -->
         <div class="ad-unit-manual">
           <ins class="adsbygoogle"
                style="display:block"
