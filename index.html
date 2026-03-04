@@ -23,6 +23,7 @@
       --card: #ffffff;
       --kofi: #ff5e5b;
       --install: #10b981;
+      --alert: #1e3a8a;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -31,6 +32,33 @@
       color: var(--text);
       line-height: 1.8;
     }
+
+    /* Notification Bar like Fox News */
+    .notification-bar {
+      background-color: var(--alert);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      z-index: 1001;
+    }
+    .notification-bar a {
+      color: #fbbf24;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .close-bar {
+      cursor: pointer;
+      position: absolute;
+      left: 20px;
+      font-weight: bold;
+    }
+
     header {
       background: linear-gradient(135deg, #1e3a8a, #2563eb);
       color: white;
@@ -60,7 +88,7 @@
       box-shadow: 0 4px 15px rgba(255, 94, 91, 0.3);
     }
     .install-btn {
-      display: none; /* مخفي افتراضياً ويظهر بالـ JS */
+      display: none; /* سيظهر بالـ JS */
       background: var(--install);
       color: white;
       padding: 12px 30px;
@@ -147,6 +175,7 @@
     @media (max-width: 600px) {
       header h1 { font-size: 1.8rem; }
       article { padding: 20px; }
+      .notification-bar { font-size: 0.8rem; padding: 10px 30px; }
     }
   </style>
   <script>
@@ -154,6 +183,10 @@
       document.getElementById('main-content').style.display = (pageId === 'main') ? 'block' : 'none';
       document.getElementById('privacy').style.display = (pageId === 'privacy') ? 'block' : 'none';
       window.scrollTo(0,0);
+    }
+
+    function closeNotification() {
+      document.getElementById('notifBar').style.display = 'none';
     }
 
     // Register Service Worker for PWA
@@ -174,6 +207,8 @@
       if (installBtn) {
         installBtn.style.display = 'inline-block';
       }
+      // إظهار تنبيه في شريط الإشعارات العلوي أيضاً
+      document.getElementById('installLink').style.display = 'inline';
     });
 
     function installPWA() {
@@ -181,8 +216,8 @@
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
           if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the install prompt');
             document.getElementById('installBtn').style.display = 'none';
+            document.getElementById('installLink').style.display = 'none';
           }
           deferredPrompt = null;
         });
@@ -191,6 +226,12 @@
   </script>
 </head>
 <body>
+
+  <div class="notification-bar" id="notifBar">
+    <span class="close-bar" onclick="closeNotification()">✕</span>
+    <span>خبر عاجل: تم إطلاق تطبيق سليمان الرسمي للكمبيوتر والجوال!</span>
+    <a href="javascript:void(0)" id="installLink" onclick="installPWA()" style="display:none;">ثبت التطبيق الآن</a>
+  </div>
 
   <header>
     <h1>دليل الربح من الإنترنت 2026</h1>
@@ -212,7 +253,7 @@
         <h2>كيف تزيد أرباحك من Google AdSense في 2026</h2>
         <p>في عالم الربح من الإنترنت، تظل <strong>Google AdSense</strong> هي الخيار الأول والموثوق لملايين الناشرين حول العالم. إذا كنت تمتلك موقعاً إلكترونياً أو مدونة، فإن فهم كيفية تحسين ظهور الإعلانات وزيادة نسبة النقر (CTR) هو المفتاح لتحقيق عوائد مجزية.</p>
 
-        <!-- وحدة إعلانية يدوية In-Feed Ad الموضع الأول -->
+        <!-- وحدة إعلانية يدوية In-Feed Ad -->
         <div class="ad-unit-manual">
           <ins class="adsbygoogle"
                style="display:block"
@@ -231,7 +272,7 @@
         <h2>2. تحسين تجربة المستخدم على الجوال</h2>
         <p>أكثر من 80% من زوار الإنترنت حالياً يستخدمون الهواتف الذكية. تأكد من أن موقعك <strong>متجاوب (Responsive)</strong> وسريع التحميل. جوجل تعطي الأولوية للمواقع التي تقدم تجربة سلسة لمستخدمي الجوال.</p>
 
-        <!-- وحدة إعلانية يدوية In-Feed Ad الموضع الثاني -->
+        <!-- وحدة إعلانية يدوية In-Feed Ad -->
         <div class="ad-unit-manual">
           <ins class="adsbygoogle"
                style="display:block"
